@@ -1,0 +1,63 @@
+﻿mysql> Create database sumit_w12_sh2;
+Query OK, 1 row affected (0.10 sec)
+
+mysql> Use sumit_w12_sh2
+Database changed
+mysql> Create table employees (Emp_ID int, First_name varchar (30), Last_name varchar (50), Salary int, Dept_ID int, Email varchar(300), City varchar (500)); 
+Query OK, 0 rows affected (0.53 sec)
+
+mysql> INSERT INTO employees (Emp_ID, First_name, Last_name, Salary, Dept_ID, Email, City) VALUES (170002, 'Sumit', 'Kumar', 95000, 103, 'abcd', 'Ambala'), (170024, 'Aastik', 'Gautam', 93000, 101, 'abcde', 'Yamnumanagar'), (170034, 'Vinit', 'Bishnoi', 91000, 105, 'abcd', 'Sirsa'), (170053, 'Yash', 'Bhardwaj', 90000, 108, 'abde', 'Panchkula') , (170019, 'Jass', 'Singh', 85000, 106, 'abcde', 'Jhalandar');
+Query OK, 5 rows affected (0.07 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> Select * from employees;
++--------+------------+-----------+--------+---------+-------+------------+
+| Emp_ID | First_name | Last_name | Salary | Dept_ID | Email | City       |
++--------+------------+-----------+--------+---------+-------+------------+
+| 170002 | Sumit      | Kumar     |  95000 |     103 | abcd  | Ambala     |
+| 170024 | Aastik     | Gautam    |  93000 |     101 | abcde | Yamunanagar|
+| 170034 | Vinit      | Bishnoi   |  91000 |     105 | abcd  | Sirsa      |
+| 170053 | Yash       | Bhardwaj  |  90000 |     108 | abde  | Panchkula  |
+| 170019 | Jass       | Singh     |  85000 |     106 | abcde | Jhalandar  |
++--------+------------+-----------+--------+---------+-------+------------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE employees
+    -> SET city = ‘Delhi’
+    -> WHERE Emp_ID = 170034;
+ERROR 1054 (42S22): Unknown column '‘Delhi’' in 'field list'
+mysql> 
+mysql> DELETE FROM employees WHERE Emp_ID = 170053;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> 
+mysql> SELECT * FROM employees ORDER BY Dept_ID  ASC;
++--------+------------+-----------+--------+---------+-------+------------+
+| Emp_ID | First_name | Last_name | Salary | Dept_ID | Email | City       |
++--------+------------+-----------+--------+---------+-------+------------+
+| 170002 | Sumit      | Kumar     |  95000 |     103 | abcd  | Ambala     |
+| 170024 | Aastik     | Gautam    |  93000 |     101 | abcde | Yamunanagar|
+| 170034 | Vinit      | Bishnoi   |  91000 |     105 | abcd  | Sirsa      |
+| 170019 | Jass       | Singh     |  85000 |     106 | abcde | Jhalandar  |
++--------+------------+-----------+--------+---------+-------+------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT Dept_ID, AVG(salary) FROM employees;
++---------+-------------+
+| Dept_ID | AVG(salary) |
++---------+-------------+
+|     103 |  91000.0000 |
++---------+-------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> SELECT * FROM employees  WHERE city = 'Ambala';
++--------+------------+-----------+--------+---------+-------+-------+
+| Emp_ID | First_name | Last_name | Salary | Dept_ID | Email | City  |
++--------+------------+-----------+--------+---------+-------+-------+
+| 170002 | Sumit      | Kumar     |  91000 |     105 | abcd  | Ambala|
++--------+------------+-----------+--------+---------+-------+-------+
+1 row in set (0.00 sec)
+
+ 
+mysql> notee
